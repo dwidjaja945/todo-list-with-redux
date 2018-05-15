@@ -6,23 +6,23 @@ import {getListData} from '../actions'
 class List extends Component {
     componentDidMount() {
         this.props.getListData();
-    };
+    }
 
     render() {
         const {listData} = this.props;
 
         const listItems = listData.map( (item, itemIndex) => {
             return (
-                <li className='collection-item' key={itemIndex}>{item.title}</li>
+                <li className='collection-item' key={itemIndex}>
+                <Link to={`item/${item._id}/`}>{item.title}</Link>
+                </li>
             )
         })
         return (
         <div>
             <h1 className="center">To do List</h1>
             <div className="row right-align">
-              <Link className="btn blue-grey" to="/add-item"> 
-                Add Item 
-              </Link>
+              <Link className="btn blue-grey" to="/add-item">Add Item </Link>
             </div>
             <ul className="collection">{listItems}</ul>
           </div>)
