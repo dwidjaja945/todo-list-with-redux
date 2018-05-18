@@ -40,3 +40,18 @@ export function toggleComplete(id) {
         payload: response
     }
 }
+
+export function deleteItem(id) {
+    const response = axios.delete(`${BASE_URL}/todos/${id + API_KEY}`);
+
+    return {
+        type: types.DELETE_ITEM,
+        payload: response
+    }
+}
+
+export function clearSingleItem() {
+    return {
+        type: types.CLEAR_SINGLE_ITEM
+    }
+}
