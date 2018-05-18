@@ -31,3 +31,12 @@ export function getSingleItem(id) {
         payload: response
     }
 }
+
+export function toggleComplete(id) {
+    const response = axios.put(`${BASE_URL}/todos/${id + API_KEY}`);
+
+    return {
+        type: types.TOGGLE_COMPLETE,
+        payload: response
+    }
+}
